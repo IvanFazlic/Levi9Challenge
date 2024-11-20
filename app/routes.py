@@ -110,7 +110,7 @@ def create_team():
         return jsonify({"error": f"One or more players do not exist."}), 400
     for player in existing_players:
         if player.team_id:
-            return jsonify({"error": f"Player {player.nickname} is already in another team."}), 400
+            return jsonify({"error": f"Player {player.id} is already in another team."}), 400
 
     # Create a new team
     new_team = Team(teamName=team_name)
