@@ -47,7 +47,7 @@ def receive_data():
         return jsonify({"error": "Failed to create player", "details": str(e)}), 500
 
 
-@routes.route('/players/getall', methods=['GET'])
+@routes.route('/players', methods=['GET'])
 def get_all_players():
     try:
         # Query all players from the database
@@ -101,7 +101,7 @@ def get_team_by_id(id):
         return jsonify({"error": "Failed to retrieve team", "details": str(e)}), 500
     
     
-@routes.route('/teams/create', methods=['POST'])
+@routes.route('/teams', methods=['POST'])
 def create_team():
     data = request.get_json()
 
