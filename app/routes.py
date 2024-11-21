@@ -40,7 +40,7 @@ def receive_data():
         db.session.commit()  # Commit the transaction to save the player to the database
 
         # Return a success response with the player data
-        return jsonify(new_player.to_dict()), 201  # Return a 201 Created status
+        return jsonify(new_player.to_dict()), 200  # Return a 200 Created status
     except Exception as e:
         # If an error occurs while saving to the database, return an error response
         db.session.rollback()  # Rollback the session in case of an error
@@ -154,7 +154,7 @@ def create_team():
         team_data['players'] = [player.to_dict() for player in existing_players]
 
         # Return the created team information
-        return jsonify(team_data), 201
+        return jsonify(team_data), 200
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": "Failed to create team", "details": str(e)}), 500
